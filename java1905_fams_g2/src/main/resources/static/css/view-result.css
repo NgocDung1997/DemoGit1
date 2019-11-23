@@ -1,0 +1,83 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+tr,
+th,
+td {
+    border: 1px solid black;
+}
+
+.thbot {
+    background-color: lightgrey;
+}
+
+
+/* .row-title {
+    background-color: cornflowerblue;
+} */
+
+.btn-viewresult {
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+.row-icon {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.btn-updatecandidate {
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+#btn-submitupdate {
+    background-color: blue;
+    font-weight: bold;
+    color: white;
+}
+
+.btn {
+    text-align: center;
+}
+
+#dropdownMenuButton {
+    background-color: lightgray;
+    padding: 12px;
+    float: right;
+    border: 1px solid black;
+    color: black;
+}
+
+.input {
+    width: 100%;
+    border: 0;
+}
+
+.inputdate {
+    border: 0;
+}
+
+.select-modal {
+    float: right;
+    margin: 0 0 0 33px;
+    border-radius: 0;
+    width: 60%;
+}
+
+.table td,
+.table th {
+    padding: 0;
+}
+
+.table thead th {
+    /* vertical-align: bottom; */
+    border: 1px solid black;
+}

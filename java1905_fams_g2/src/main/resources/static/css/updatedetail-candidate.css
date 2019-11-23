@@ -1,0 +1,57 @@
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: fit-content;
+    
+  }
+  .tbl-resultentry{
+    width: 100%;
+    margin: auto;
+  }
+  .tbl-resultinterview{
+    width: 100%;
+    margin: auto;
+  }
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    transition: 0.3s;
+    font-size: 17px;
+    
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  .tabcontent {
+    /* display: none; */
+    padding: 6px 12px;
+    border: 1px solid gray;
+  }
+  #Result{
+      display: none;
+  }
+.td-input{
+  background-color: #e9ecef;
+}
+.td-label{
+  background-color:lightgray;
+}
+.table td, .table th{
+  padding: 0;
+}
+.thbot{
+  background-color: lightgray;
+}

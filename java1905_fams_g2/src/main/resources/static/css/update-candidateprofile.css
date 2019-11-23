@@ -1,0 +1,124 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+tr,
+th,
+td {
+    border: 1px solid black;
+}
+
+.thbot {
+    background-color: lightgrey;
+}
+
+/* .row-title {
+    background-color: cornflowerblue;
+} */
+
+.btn-viewresult {
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+.row-icon {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.btn-updatecandidate {
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+#btn-submitupdate {
+    background-color: blue;
+    font-weight: bold;
+    color: white;
+}
+
+.btn {
+    text-align: center;
+}
+
+#dropdownMenuButton {
+    background-color: lightgray;
+    padding: 12px;
+    float: right;
+    border: 1px solid black;
+    color: black;
+}
+
+.input {
+    width: 100%;
+    border: 0;
+}
+
+.inputdate {
+    border: 0;
+}
+
+.select-modal {
+    float: right;
+    margin: 0 0 0 33px;
+    border-radius: 0;
+    width: 60%;
+}
+
+th {
+    background-color: deepskyblue;
+    border: 1px solid black;
+}
+
+
+tr:nth-child(2):nth-child(even) {
+    background-color: lightgrey;
+}
+
+select {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+input[type=text] {
+    width: 100%;
+    border: none;
+}
+
+input[type=date] {
+    width: 85%;
+    float: left;
+    border: none;
+    
+}
+
+input[type=month] {
+    width: 85%;
+    border: none;
+}
+
+input[type=email] {
+    width: 100%;
+    border: none;
+}
+
+.form-control,
+.dropdown,
+.dropdown-menu {
+    font-size: 25px;
+    width: 100%;
+}
+
+.content-add-candidate {
+    padding: 3px;
+}
+.table thead th{
+    border: 1px solid black;
+}

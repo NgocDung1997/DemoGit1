@@ -1,0 +1,242 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add candidate</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../../resources/css/index.css"> -->
+    <link rel="stylesheet" th:href="@{/css/add-candidate.css}">
+    <!-- <link rel="stylesheet" href="../../resources/css/candidate-listing.css"> -->
+</head>
+
+<body>
+    <h1>Add Candidate Profile</h1>
+    <br>
+    <div class="errorTxt">
+    </div>
+
+
+    <nav>
+        <div class="nav nav-tabs flex-row bg-white border-0" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Candidate information</a>
+            <!-- <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Result</a> -->
+        </div>
+    </nav>
+    <div class="content-add-candidate border mb-5 p-2">
+        <form action="#" method="post" id="form-add-candidate">
+            <table>
+                <th colspan="6">Personal Infomation</th>
+                <tr>
+                    <td>Empl ID</td>
+                    <td><label>01235</label></td>
+                    <td>Type</td>
+                    <td>Candidate</td>
+                    <td>Status</td>
+                    <td>New</td>
+                </tr>
+                <tr>
+                    <td><label for="">Application Date</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='date' class="form-control" id="applicationDate" name="applicationDate" />
+                                <!-- <span class="input-group-addon">
+                                <span class="fa fa-calendar" style="font-size:30px"></span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </td>
+                    <td><label for="">Channel<span> *</span></label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <select name="selectChannel" id="" th:field="*{channels}">
+                            <option th:each="channel : channels" th:value="${channel.channelId}" th:text="${channel.channelName}"></option>
+                              <!--  <option value="${channel.id}">${channel.name}</option>
+                                 <option value="mailtd">MailTD</option>
+                                <option value="other">Other</option> -->
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Site</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <select name="" id="">
+                                <option value="">Ha Noi</option>
+                                <option value="">Da Nang</option>
+                                <option value="">TP HCM</option>
+                            </select>
+                        </div>
+
+                    </td>
+                    <td><label for="">Account</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input type="text" name="account" id="account" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Name <span> *</span></label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input class="error-input" type="text" name="fullName" id="fullName" onchange="createAccount()">
+                        </div>
+                    </td>
+                    <td><label for="">Gender</label></td>
+                    <td colspan=2>
+                        <div class="form-group">
+                            <input type="radio" name="gender" id="gender" value="male" checked>Male
+                            <input type="radio" name="gender" id="gender" value="female">Female
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">DOB<span> *</span></label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input name="dob" type='date' class="form-control error-input" />
+                                <!-- <span class="input-group-addon">
+                                    <span class="fa fa-calendar" style="font-size:36px"></span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </td>
+                    <td><label for="">CV</label></td>
+                    <td colspan=2>
+                        <div class="form-group">
+                            <label for="CV" id="fileName" name="fileName" class="col-md-9">Choose file</label>
+                            <input type="file" name="CV" id="CV" class="col-md-1 custom-file-input" accept=".pdf, .docx">
+                            <label for="CV" class="col-md-1" style="float: right;"><i class="material-icons" style="font-size:36px">more_horiz</i></label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">University</label></td>
+                    <td colspan="2">
+                        <div class="btn-group dropdown todos" id="todos">
+                            <button class="btn btn-default dropdown-toggle botn-todos" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <label for="" style="font-size: 20px;" id="university">PTIT</label>
+                                <span class="caret caret-posicion"></span>
+                            </button>
+                            <ul class="dropdown-menu ancho-todos" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <input value="PTIT" name="uni" type="radio" class="uni"> PTIT
+                                </li>
+                                <li>
+                                    <input value="HUST" name="uni" type="radio" class="uni"> HUST
+                                </li>
+                                <li>
+                                    <input value="FU" name="uni" type="radio" class="uni"> FU
+                                </li>
+                                <li>
+                                    <input name="uni" type="radio" class="uni"> Other
+                                </li>
+                                <hr>
+                                <input type="text" name="" id="other-university">
+                            </ul>
+                        </div>
+                    </td>
+                    <td><label for="">Faculty</label></td>
+                    <td colspan="2">
+                        <div class="btn-group dropdown todos" id="todos">
+                            <button class="btn btn-default dropdown-toggle botn-todos" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <label for="" style="font-size: 20px;" id="faculty">CNTT</label>
+                                <span class="caret caret-posicion"></span>
+                            </button>
+                            <ul class="dropdown-menu ancho-todos" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <input value="CNTT" name="fac" type="radio" class="fac"> CNTT
+                                </li>
+                                <li>
+                                    <input value="DTVT" name="fac" type="radio" class="fac"> DTVT
+                                </li>
+                                <li>
+                                    <input value="DPT" name="fac" type="radio" class="fac"> DPT
+                                </li>
+                                <li>
+                                    <input value="Other" name="fac" type="radio" class="fac"> Other
+                                </li>
+                                <hr>
+                                <input type="text" name="" id="other-faculty">
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Phone <span> *</span></label></td>
+                    <td colspan="2">
+                        <div class="form-group"><input class="error-input" name="phone" type="text"></div>
+                    </td>
+                    <td><label for="">Email <span> *</span></label></td>
+                    <td colspan="2">
+                        <div class="form-group"><input class="error-input" name="email" type="email"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Skill</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <select name="" id="">
+                                <option value="">Java</option>
+                                <option value="">PHP</option>
+                                <option value="">C++</option>
+                                <option value="">C#</option>
+                                <option value="">Python</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td><label for="">Graduation Year</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='month' class="form-control" />
+                                <!-- <span class="input-group-addon">
+                                    <span class="fa fa-calendar" style="font-size:36px"></span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Foreign Language</label></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input type="text" id="language" name="language" class="tfield1">
+                        </div>
+                    </td>
+                    <td><label for="">Level</label></td>
+                    <td colspan=2><input type="text" id="level" name="level" class="tfield1"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Note</label></td>
+                    <td colspan="5"><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>History</td>
+                    <td colspan="5"><input type="text" disabled></td>
+                </tr>
+            </table>
+            <br>
+            <button type="submit" id="btn-addCandidate" class="btn btn-primary" value="Submit">Submit</button>
+            <button type="button" class="btn btn-outline-dark">
+                <i class="fa fa-reply" style="font-size:16px;color:red"></i>Close
+            </button>
+        </form>
+    </div>
+    <script th:src="@{js/add-candidate.js}" src="../../resources/js/add-candidate.js"></script>
+    <!-- <script type="text/javascript" src="../../resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script> -->
+    <script src="../../resources/js/jquery.validate.min.js"></script>
+
+    <script src="../../resources/js/jquery-validator.js"></script>
+</body>
+
+</html>

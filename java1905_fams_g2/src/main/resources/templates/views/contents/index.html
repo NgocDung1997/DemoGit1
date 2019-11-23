@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<title>Fsoft</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<div class="row header">
+			<div class="col-2 logo">
+				<img src="../resources/imgs/logo.png" alt="" srcset="" width="60px"
+					height="100%"> <a id="showMenu" href="#"
+					class="d-none text-white"
+					onclick="$('#showMenu').hide(); $('#hideMenu').show(); $('#leftMenu').show(); $('#mainpage').removeClass('col-md-12').addClass('col-md-10') ">>></a>
+				<a id="hideMenu" class="text-white" href="#"
+					onclick="$('#leftMenu').hide(); $('#hideMenu').hide(); $('#mainpage').removeClass('col-md-10').addClass('col-md-12'); $('#showMenu').removeClass('d-none').show();">
+					<< </a>
+			</div>
+			<div class="col-md-7 align-self-center title">
+				<label class="align-middle labeTitle" for="title">FSOFT HR
+					UTILITY</label>
+			</div>
+			<div class="col-md-3  logout">
+				<label class="logout" for="logout">Welcome</label> <label
+					class="logout" for="user"></label> <label class="logout"
+					for="department"></label><br> <label class="logout"><a
+					href="logout">Logout</a></label>
+			</div>
+		</div>
+		<div class="row content">
+
+			<div class="col-md-2 nav" id="leftMenu">
+				<div class="row justify-content-end"></div>
+				<div class="div-role">
+					<div class="row ">
+						<label>Your role now is: </label>
+					</div>
+					<div class="row ">
+						<select class="form-control " id="select-role">
+							<option th:each="authority : ${#authentication.getAuthorities()}"
+								th:if="${authority.getAuthority().startsWith('ROLE_')}"
+								th:text="${authority.getAuthority().replaceFirst('ROLE_', '')}">
+							</option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<ul style="list-style-type: disc;">
+						<li><a href="#" id="dashBoardLink">Dashboard</a></li>
+						<li><a href="#">Class Manager</a></li>
+						<li><a href="#" id="candidateManagementLink">Candidate
+								Managerment</a></li>
+						<li><a href="#">Trainer Managerment</a></li>
+						<li><a href="#">Trainee Managerment</a></li>
+						<li><a href="#">Genaral Setting</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-10 aside" id="mainpage"></div>
+		</div>
+		<div class="row footer">
+			<div class="col-md-2 "></div>
+			<div class="col-md-10 footerinfo">
+				<label for=""><ion-icon name="help-circle-outline"></ion-icon>
+					Help</label>&nbsp; &nbsp; <label for=""><ion-icon name="print"></ion-icon>
+					Create ticket</label>
+			</div>
+		</div>
+	</div>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+
+
+
+</body>
+
+</html>

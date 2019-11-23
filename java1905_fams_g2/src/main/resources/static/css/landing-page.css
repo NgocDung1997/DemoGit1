@@ -1,0 +1,34 @@
+.dashboard-filter label {
+    margin: 2% 3%;
+}
+
+.dashboard-filter div {
+    margin: 2% 0%;
+    margin-right: 5%;
+    width: 7%;
+}
+
+.dashboard-filter select {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-result label {
+    margin-top: 8%;
+    margin-left: 48%;
+}
+
+
+/*Scroll Table*/
+
+.my-custom-scrollbar {
+    margin-left: 30%;
+    position: relative;
+    height: 70%;
+    overflow: auto;
+    width: 50%;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}

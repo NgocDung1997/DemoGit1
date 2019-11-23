@@ -1,0 +1,125 @@
+ /* input[type=date]::-webkit-clear-button, */
+ /* blue cross */
+ /* input[type=date]::-webkit-inner-spin-button, */
+ /* up */
+ /* input[type=date]::-webkit-outer-spin-button, */
+ /* down */
+ /* input[type=date]::-webkit-calendar-picker-indicator */
+ /* datepicker*/
+ /* {
+    display: none;
+} */
+ /* table {
+     border: 1px solid black;
+     width: 98%;
+     line-height: 35px;
+     margin-left: 10px;
+     margin-right: 10px;
+     font-size: 25px;
+ } */
+ 
+ table {
+     border: 1px solid black;
+     border-collapse: collapse;
+     width: 100%;
+     overflow-y: scroll;
+ }
+ 
+ td {
+     border: 1px solid black;
+     height: 35px;
+     padding: 0px 5px 0px 5px;
+ }
+ 
+ th {
+     background-color: deepskyblue;
+     border: 1px solid black;
+ }
+ 
+ td:nth-child(odd) {
+     background-color: silver;
+ }
+ 
+ tr:nth-child(2):nth-child(even) {
+     background-color: lightgrey;
+ }
+ 
+ select {
+     width: 100%;
+     border-color: white;
+ }
+ 
+ input:focus {
+     outline: none;
+ }
+ 
+ input[type=text] {
+     width: 100%;
+     /* border-color: white; */
+     /*border-style: hidden; */
+ }
+ 
+ input[type=date] {
+     /* width: 85%; */
+     /* height: 35px; */
+     float: left;
+     /* border-color: white; */
+ }
+ 
+ input[type=month] {
+     width: 85%;
+     /* border-color: white; */
+ }
+ 
+ input[type=email] {
+     width: 100%;
+     /* border-color: white; */
+ }
+ 
+ .form-group {
+     margin-bottom: 0px;
+ }
+ /* .form-control, */
+ 
+ .dropdown,
+ .dropdown-menu {
+     font-size: 25px;
+     width: 100%;
+ }
+ 
+ .content-add-candidate {
+     padding: 5px;
+     /* border: 1px solid black; */
+ }
+ 
+ .error {
+     color: red;
+     border-color: Red;
+ }
+ 
+ .errorTxt {
+     text-align: center;
+ }
+ /* .nav-link {
+     font-size: 25px;
+     color: black;
+ } */
+ /* header {
+    background-color: darkblue;
+    padding: 10px;
+    color: white;
+} */
+ /* a {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+} */
+ /* nav {
+     float: left;
+     height: 100vh;
+     background: #ccc;
+     padding: 20px;
+     border: 1px solid black;
+ } */

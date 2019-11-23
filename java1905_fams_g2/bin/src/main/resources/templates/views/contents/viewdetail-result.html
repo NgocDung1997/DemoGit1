@@ -1,0 +1,271 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/viewdetail-result.css}" href="/css/viewdetail-result.css">
+    
+    <link rel="stylesheet" th:href="@{/css/view-result.css}" href="/css/view-result.css">
+    <link rel="stylesheet" th:href="@{/css/add-candidate.css}" href="/css/add-candidate.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}" src="/js/jquery-1.11.3.min.js"></script>
+  
+    <title>Candidate Profile</title>
+</head>
+<body>
+    <h2>Candidate Profile</h2>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'CandidateInfo')">Candidate Infomation</button>
+        <button class="tablinks" onclick="openTab(event, 'Result')">Result</button>
+       
+    </div>
+    
+    <div id="CandidateInfo" class="tabcontent">
+        <div class="content-add-candidate">
+            <!-- <form action="#" method="post" id="form-add-candidate"> -->
+                <table id="tbl-viewcandidateprofile">
+                    <th colspan="6">Personal Infomation</th>
+                    <tr>
+                        <td >Empl ID</td>
+                        <td  id="idEmpl" th:text="${candidateProfile.candidateProfileId}"></td>
+                        <td>Type</td>
+                        <td th:utext="${candidateProfile.type}"></td>
+                        <td>Status</td>
+                        <td >new</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Application Date</label></td>
+                        <td class="td-input" colspan="2">
+                        <label th:text="${#temporals.format(profile.dateOfBirth,'dd-MM-yyyy')}"></label> 
+                       	<!-- <label th:utext="${profile.dateOfBirth}"></label>     -->                
+                        </td>
+                        <td class="td-label" ><label for="">Channel<span> *</span></label></td>
+                        <td class="td-input" colspan="2">
+                            <label th:utext="${candidateProfile.candidate.channel.channelName}"></label>                     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Site</label></td>
+                        <td class="td-input" colspan="2">
+                            <label th:utext="${candidateProfile.location.siteName}"></label>
+                       
+                        </td>
+                        <td class="td-label"><label for="">Account</label></td>
+                        <td class="td-input" colspan="2">
+                                <label >DongNV13</label>
+                            <!-- <input type="text" name="account" id="account" disabled> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Name <span> *</span></label></td>
+                        <td class="td-input" colspan="2">
+                                <label th:utext="${profile.fullName}"></label>
+                            <!-- <input disabled type="text" name="fullName" id="fullName" onchange="createAccount()"> -->
+                        </td>
+                        <td class="td-label"><label for="">Gender</label></td>                      
+                          <td class="td-input" colspan="2">
+                          	<div th:if="${profile.gender}">
+   								<label >Male</label>
+							</div>
+                           <div th:unless="${profile.gender}">
+                           		<label >FeMale</label>
+                           </div>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">DOB<span> *</span></label></td>
+                        <td class="td-input" colspan="2">
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                
+                                        <label th:text="${#temporals.format(profile.dateOfBirth,'dd-MM-yyyy')}"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="td-label"><label for="">CV</label></td>
+                        <td class="td-input" colspan=2>
+                             <label th:utext="${candidateProfile.cv}" style="text-decoration: underline;">
+                              <i class='far fa-file-word'></i> </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">University</label></td>
+                        <td class="td-input" colspan="2">
+                                <label th:utext="${candidateProfile.university.universityName}"></label>                         
+                        </td>
+                        <td class="td-label"><label for="">Faculty</label></td>
+                        <td class="td-input" colspan="2">
+                                <label >DTVT</label>                         
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Phone <span> *</span></label></td>
+                        <td class="td-input" colspan="2">
+                                <label th:utext="${profile.phone}"></label>
+                            <!-- <input disabled type="text"> -->
+                        </td>
+                        <td class="td-label"><label for="">Email <span> *</span></label></td>
+                        <td class="td-input" colspan="2">
+                                <label th:utext="${profile.email}"></label>
+                            <!-- <input disabled type="email"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Skill</label></td>
+                        <td class="td-input" colspan="2">
+                                <label th:utext="${candidateProfile.skill.skillName}">Java</label>                           
+                        </td>
+                        <td class="td-label" ><label for="">Graduation Year</label></td>
+                        <td class="td-input" colspan="2">
+                                 <label th:text="${#temporals.format(candidateProfile.graduationYear, 'MM-yyyy')}"></label>                     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Foreign Language</label></td>
+                        <td class="td-input" colspan="2">
+                                <label  th:utext="${candidateProfile.foreignLanguage}"></label>                           
+                        </td>
+                        <td class="td-label"><label for="">Level</label></td>
+                        <td class="td-input" colspan=2>
+                                <label >DEV 0</label>
+                            <!-- <input disabled type="text" id="level" name="level" class="tfield1"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><label for="">Note</label></td>
+                        <td class="td-input"  colspan="5">
+                            <label th:utext="${profile.remark}"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">History</td>
+                        <td class="td-input" colspan="5">                            
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <button type="button" class="btn-viewresult" id="btn-updatecandidate" href="#"> <i class='far fa-arrow-alt-circle-up' style="color: green;"></i> Update Candidate</button>&nbsp;
+                <button  type="button" id="btn-deletecandidate" href="#" class="btn-viewresult" ><i class='fas fa-ban' style="color: red;"></i> Delete Candidate</button>&nbsp;
+                <button type="button" class="btn-viewresult" data-toggle="modal" data-target="#myModal"><i class='fas fa-exchange-alt' style="color: aqua;"></i> Transfer Candidate</button>
+    
+<!--             </form> -->
+        </div>
+
+    </div>
+  
+    <div id="Result" class="tabcontent">
+        <table class="table tbl-resultentry">
+            <thead>
+                <tr>
+                    <th class="row-title row-icon"><i id="expand-tbl1" class='fas fa-caret-down'></i></span>
+                    </th>
+                    <th class="row-title" colspan="6">Entry Test</th>
+                </tr>
+                <tr>
+                    <th class="thbot">Time</th>
+                    <th class="thbot">Date</th>
+                    <th class="thbot">Language Valuator</th>
+                    <th class="thbot">Language Point</th>
+                    <th class="thbot">Technical Valuator</th>
+                    <th class="thbot">Technical Point</th>
+                    <th class="thbot">Result</th>
+    
+                </tr>
+            </thead>
+            <tbody class="tbl-tbody1">
+          	  <th:block th:each="entryTest : ${candidateProfile.candidate.entryTests}">
+                <tr> 
+                    <td class="td-input" th:text="${entryTest.entryTestTime}"></td>
+                    <td class="td-input" th:text="${#temporals.format(entryTest.entryTestDate, 'dd-MM-yyyy')}"></td>
+                    <td class="td-input" th:text="${entryTest.languageValuator}"></td>
+                    <td class="td-input" th:text="${entryTest.languageResult}"></td>
+                    <td class="td-input" th:text="${entryTest.technicalValuator}"></td>
+                    <td class="td-input" th:text="${entryTest.technicalResult}"></td>
+                    <td class="td-input" th:text="${entryTest.result}"></td>
+    
+                </tr>
+               </th:block>
+            </tbody>
+        </table><br>
+        <table class="table tbl-resultinterview">
+            <thead>
+                <tr>
+                    <th class="row-title row-icon"><i id="expand-tbl2" class='fas fa-caret-down'></i></th>
+                    <th class="row-title" colspan="6">Interview</th>
+                </tr>
+                <tr>
+                    <th class="thbot">Time</th>
+                    <th class="thbot">Date</th>
+                    <th class="thbot">Interview</th>
+                    <th class="thbot" width="50%">Comment</th>
+                    <th class="thbot">Result</th>
+    
+                </tr>
+            </thead>
+            <tbody class="tbl-tbody2">
+          		  <th:block th:each="interview : ${candidateProfile.candidate.interviews}">
+               		 <tr>
+                   		 <td class="td-input" th:text="${interview.time}" ></td>
+                    	<td class="td-input" th:text="${interview.date}" ></td>
+                    	<td class="td-input" th:text="${interview.interviewer}" ></td> 
+                    	<td class="td-input" width="50%" th:text="${interview.comments}"></td>
+                    <td class="td-input" th:text="${interview.result}"></td>
+               		 </tr>
+                  </th:block>
+            </tbody>
+        </table><br>
+        <button class="btn-viewresult"> <i class='far fa-arrow-alt-circle-up' style="color: green;"></i> Update Candidate</button>&nbsp;
+        <button class="btn-viewresult"><i class='fas fa-ban' style="color: red;"></i> Delete Candidate</button>&nbsp;
+        <button type="button" class="btn-viewresult" data-toggle="modal" data-target="#myModal"><i class='fas fa-exchange-alt' style="color: aqua;"></i> Transfer Candidate</button>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tranfer</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+                    </div>
+                    <div class="modal-body">
+                        <div class="row abc">
+    
+                            <p>Tranfer to</p>
+                            <div class="input-group select-modal">
+                                <input type="text" class="form-control select-modal" value="FA">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">FA</a>
+                                        <a class="dropdown-item" href="#">BA</a>
+                                        <a class="dropdown-item" href="#">FHU</a>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script th:src="@{/js/popper.min.js}" src="/js/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"  src="/js/bootstrap.min.js"></script>
+    
+    <script th:src="@{/js/viewdetail-resultTAB.js}" src="/js/viewdetail-resultTAB.js"></script>
+    <script type="text/javascript"  th:src="@{/js/view-result.js}" src="/js/view-result.js"></script>
+    
+    <script th:src="@{/js/bootbox.js}" src="/js/bootbox.js"></script>  
+	
+ 
+</body>
+</html>

@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+input[type=button] {
+    width: 100%;
+}
+
+.note-div {
+    background-color: lemonchiffon;
+    padding-left: 2%;
+    border: 1px solid steelblue;
+}
+
+.note-div a {
+    padding-left: 95%;
+    text-decoration: underline;
+}
+
+.note-div hr {
+    border-top: dashed;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/css/login-page.css}"  type="text/css" />
+<link rel="stylesheet" th:href="@{/css/common.css}"  type="text/css" />
+</head>
+<body>
+	<h1>Login</h1>
+	<hr style="font-weight: 100;">
+	<div class="container-fluid">
+		<div class="row">	
+			<div class="col-md-3">
+			<p class="error-text" th:if="${param.error}">Invalid Email or Password</p>
+				<form th:action="@{/login}" method="POST" style="width: 100%">
+					<div class="row">
+						<div class="col-md-3">
+							<label>Username</label>
+						</div>
+						<div class="col-md-8">
+							<input type="text" style="width: 100%;" name="username"
+								id="username" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label>Password</label>
+						</div>
+						<div class="col-md-8">
+							<input type="password" style="width: 100%;" name="password"
+								id="password" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-4">
+							<input type="submit" value="Login" />
+						</div>
+						<div class="col-md-4">
+							<input type="button" value="Reset" onclick="resetInput()" />
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+
+			<div class="col-md-2"></div>
+			<div class="col-md-6 note-div">
+				<strong>Welcome to F-Soft HR Ultility</strong> </br>
+				<p>This tool is developed to help Employee. Project Manager , BJ
+					Manager , FSU Leads, HR(SSC,BP,Manager), CTC,FWA,QA... in
+					submitting HR realated informations , approving the submitted info
+					, monitoring status of submissions ... and futher more</p>
+				<a href="#">More</a>
+				<hr>
+				<p>The recommended web browser is Google Chrome Sorry for any
+					inconvenience !!!!</p>
+			</div>
+		</div>
+	</div>
+	 	<script type="text/javascript" th:src="@{/js/login-page.js}"></script>
+</body>
+</html>
